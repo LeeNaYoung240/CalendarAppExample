@@ -6,20 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".WeekViewActivity">
 
-    <Button
-        android:layout_marginTop="10dp"
-        android:id="@+id/MonthlyButton"
-        android:layout_width="400dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:background="@null"
-        android:onClick="weeklyAction"
-        android:text=""
-        android:textColor="@color/blue"
-        android:textSize="20sp"
-        android:textStyle="bold"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,17 +15,16 @@
         android:orientation="horizontal"
         android:layout_marginBottom="20dp"
         android:layout_marginTop="20dp">
-
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:background="@null"
-            android:onClick="previousMonthAction"
             android:text="@string/back"
             android:textColor="@color/blue"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:background="@null"
+            android:textStyle="bold"
+            android:onClick="previousWeekAction"
+            android:textSize="20sp"/>
 
         <TextView
             android:id="@+id/monthYearTV"
@@ -57,7 +44,7 @@
             android:textColor="@color/blue"
             android:background="@null"
             android:textStyle="bold"
-            android:onClick="nextMonthAction"
+            android:onClick="nextWeekAction"
             android:textSize="20sp"/>
 
     </LinearLayout>
@@ -137,7 +124,44 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/calendarRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@null"
+        android:onClick="newEventAction"
+        android:text="New Event"
+        android:textColor="@color/blue"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@null"
+        android:onClick="nextMonthAction"
+        android:text="Return Monthly Calendar"
+        android:textColor="#2F2F7E"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <ListView
+        android:id="@+id/AdminListView"
+        android:layout_width="match_parent"
+        android:layout_height="11dp"
+        android:layout_weight="5"
+        android:backgroundTint="@color/cardview_shadow_end_color"
+        android:cacheColorHint="@color/common_google_signin_btn_tint" />
+
+    <ListView
+        android:id="@+id/eventListView"
+        android:layout_width="match_parent"
+        android:layout_height="11dp"
+        android:layout_weight="5" />
 
 </LinearLayout>
 
